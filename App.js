@@ -1,16 +1,17 @@
 import * as React from "react";
 import Home from "./Pages/Home/Home";
+import Budgets from "./Pages/Budgets/Budgets";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
+import { StatusBar } from "react-native";
 import {
   Montserrat_400Regular_Italic,
   Montserrat_500Medium_Italic,
   Montserrat_600SemiBold_Italic,
 } from "@expo-google-fonts/montserrat";
-import { StatusBar } from "react-native";
-// import {} from "@expo-google-fonts/open-sans";
+import { OpenSans_400Regular } from "@expo-google-fonts/open-sans";
 // import {} from "@expo-google-fonts/roboto";
 
 const Drawer = createDrawerNavigator();
@@ -24,11 +25,11 @@ function MyDrawer() {
           paddingTop: 40,
         },
         drawerPosition: "right",
-        drawerHideStatusBarOnOpen: "true",
         drawerStatusBarAnimation: "slide",
         headerShown: false,
         drawerActiveBackgroundColor: "#2b2b2b",
         drawerActiveTintColor: "#fff",
+        drawerInactiveTintColor: "#fff",
         drawerLabelStyle: {
           fontSize: 20,
           fontFamily: "Montserrat_400Regular_Italic",
@@ -37,6 +38,7 @@ function MyDrawer() {
       initialRouteName="Home"
     >
       <Drawer.Screen name="Home" component={Home} />
+      <Drawer.Screen name="Budgets" component={Budgets} />
     </Drawer.Navigator>
   );
 }
@@ -46,6 +48,7 @@ export default function App() {
     Montserrat_600SemiBold_Italic,
     Montserrat_500Medium_Italic,
     Montserrat_400Regular_Italic,
+    OpenSans_400Regular,
   });
 
   if (!fontsLoaded) {
