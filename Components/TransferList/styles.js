@@ -1,7 +1,14 @@
 import styled from "styled-components/native";
 
 export const TransferContainer = styled.ScrollView`
-  height: 250px;
+  height: 220px;
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
+`;
+
+export const TransferContainerStatic = styled.View`
+  height: 220px;
+  display: ${(props) => (props.isOpen ? "none" : "flex")};
+  overflow: hidden;
 `;
 
 export const TransferView = styled.View`

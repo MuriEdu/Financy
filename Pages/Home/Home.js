@@ -1,8 +1,9 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import Card from "../../Components/Card/Card";
 import Contents from "../../Components/Contents/Contents";
 import Header from "../../Components/Header/Header";
+import BottonOptions from "../../Components/BottonOptions/BottonOptions";
 import TransferList from "../../Components/TransferList/TransferList";
 import { Container } from "../../styles";
 
@@ -13,7 +14,7 @@ export default function Home() {
       iconFont: 0, //Ionicons
       name: "McDonalds", // use template strings
       budget: "Supplies",
-      amount: 22.9,
+      amount: -22.9,
       isNegative: true,
     },
     {
@@ -21,7 +22,7 @@ export default function Home() {
       iconFont: 0, //Ionicons
       name: "Jaú serve", // use template strings
       budget: "Supplies",
-      amount: 130.38,
+      amount: -130.38,
       isNegative: true,
     },
     {
@@ -37,7 +38,7 @@ export default function Home() {
       iconFont: 0, //Ionicons
       name: "McDonalds", // use template strings
       budget: "Supplies",
-      amount: 22.9,
+      amount: -22.9,
       isNegative: true,
     },
     {
@@ -45,7 +46,7 @@ export default function Home() {
       iconFont: 0, //Ionicons
       name: "Jaú serve", // use template strings
       budget: "Supplies",
-      amount: 130.38,
+      amount: -130.38,
       isNegative: true,
     },
     {
@@ -67,6 +68,7 @@ export default function Home() {
         clientName={"Murilo Eduardo Feijó Ramos"}
       />
       <Contents data={TransferList(fakeList)} />
+      <BottonOptions screen={0} />
     </Container>
   );
 }
