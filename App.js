@@ -11,8 +11,12 @@ import {
   Montserrat_500Medium_Italic,
   Montserrat_600SemiBold_Italic,
 } from "@expo-google-fonts/montserrat";
-import { OpenSans_400Regular } from "@expo-google-fonts/open-sans";
-// import {} from "@expo-google-fonts/roboto";
+import {
+  OpenSans_400Regular,
+  OpenSans_700Bold,
+  OpenSans_400Regular_Italic,
+} from "@expo-google-fonts/open-sans";
+import { Roboto_300Light, Roboto_500Medium } from "@expo-google-fonts/roboto";
 
 const Drawer = createDrawerNavigator();
 
@@ -49,6 +53,10 @@ export default function App() {
     Montserrat_500Medium_Italic,
     Montserrat_400Regular_Italic,
     OpenSans_400Regular,
+    OpenSans_400Regular_Italic,
+    OpenSans_700Bold,
+    Roboto_300Light,
+    Roboto_500Medium,
   });
 
   if (!fontsLoaded) {

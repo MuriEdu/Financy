@@ -13,7 +13,7 @@ export default function Contents({ title, data }) {
           <FeatherIcon name="chevron-up" size={40} color={"#fff"} />
         </TouchableOpacity>
       </TopView>
-      <View>{data.render()}</View>
+      <View>{data}</View>
     </ContentsView>
   );
 }
