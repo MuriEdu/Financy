@@ -7,6 +7,8 @@ export const BottonView = styled.View`
   flex-grow: 1;
   justify-content: space-around;
   align-items: center;
+  height: 80px;
+  width: 100%;
 `;
 
 export const BottonContents = styled.View`
@@ -16,9 +18,6 @@ export const BottonContents = styled.View`
   justify-content: center;
   align-items: center;
   width: 200px;
-  /* border-right-width: ${(props) => props.left};
-  border-left-width: ${(props) => props.right};
-  border-color: #353535; */
 `;
 
 export const Line = styled.View`

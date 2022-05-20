@@ -67,6 +67,7 @@ export default function Home() {
         amount={"R$5.250,50"}
         clientName={"Murilo Eduardo Feijó Ramos"}
       />
+
       <Contents data={TransferList(fakeList)} />
       <BottonOptions screen={0} />
     </Container>

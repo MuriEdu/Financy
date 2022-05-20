@@ -13,6 +13,7 @@ import {
 } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { ScrollView } from "react-native";
 
 export default function TransferList(list) {
   const iconFonts = [
@@ -29,53 +30,28 @@ export default function TransferList(list) {
   ];
 
   return (
-    <>
-      <TransferContainer showsVerticalScrollIndicator={false} isOpen={false}>
-        {list.map((item) => {
-          const fltAmount = parseFloat(item.amount).toFixed(2);
+    <TransferContainer showsVerticalScrollIndicator={false}>
+      {list.map((item) => {
+        const fltAmount = parseFloat(item.amount).toFixed(2);
 
-          return (
-            <TransferView>
-              <TransferContainerLeft>
-                <TransferIcon>
-                  {iconFonts[item.iconFont].render(item.iconName)}
-                </TransferIcon>
-                <TransferContent>
-                  <ContentText title size={18}>
-                    {item.name}
-                  </ContentText>
-                  <ContentText size={16}>{item.budget}</ContentText>
-                </TransferContent>
-              </TransferContainerLeft>
-              <Amount textColor={item.isNegative}>{fltAmount}</Amount>
-            </TransferView>
-          );
-        })}
-        <EndText>No more transfers</EndText>
-      </TransferContainer>
-      <TransferContainerStatic isOpen={false}>
-        {list.map((item) => {
-          const fltAmount = parseFloat(item.amount).toFixed(2);
-
-          return (
-            <TransferView>
-              <TransferContainerLeft>
-                <TransferIcon>
-                  {iconFonts[item.iconFont].render(item.iconName)}
-                </TransferIcon>
-                <TransferContent>
-                  <ContentText title size={18}>
-                    {item.name}
-                  </ContentText>
-                  <ContentText size={16}>{item.budget}</ContentText>
-                </TransferContent>
-              </TransferContainerLeft>
-              <Amount textColor={item.isNegative}>{fltAmount}</Amount>
-            </TransferView>
-          );
-        })}
-        <EndText>No more transfers</EndText>
-      </TransferContainerStatic>
-    </>
+        return (
+          <TransferView>
+            <TransferContainerLeft>
+              <TransferIcon>
+                {iconFonts[item.iconFont].render(item.iconName)}
+              </TransferIcon>
+              <TransferContent>
+                <ContentText title size={18}>
+                  {item.name}
+                </ContentText>
+                <ContentText size={16}>{item.budget}</ContentText>
+              </TransferContent>
+            </TransferContainerLeft>
+            <Amount textColor={item.isNegative}>{fltAmount}</Amount>
+          </TransferView>
+        );
+      })}
+      <EndText>No more transfers</EndText>
+    </TransferContainer>
   );
 }
