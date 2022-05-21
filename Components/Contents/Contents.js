@@ -56,7 +56,9 @@ export default function Contents({ title, data }) {
             <FeatherIcon name={iconName} size={40} color={"#fff"} />
           </TouchableOpacity>
         </TopView>
-        <MotiView state={middleAnimated}>{data}</MotiView>
+        <MotiView style={{ height: 245 }} state={middleAnimated}>
+          {data}
+        </MotiView>
         <BottonOptions screen={0} />
       </ContentsView>
     </MotiView>
