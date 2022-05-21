@@ -12,9 +12,9 @@ import {
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Feather from "react-native-vector-icons/Feather";
 
-export default function Card({ type, amount, clientName }) {
+export default function Card({ type, amount, clientName, isRed }) {
   return (
-    <CardView>
+    <CardView isRed={isRed}>
       <TopView>
         <CardText size={17}>{type}</CardText>
         <TouchableOpacity>

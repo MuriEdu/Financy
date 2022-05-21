@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const CardView = styled.View`
-  background-color: #414e9b;
+  background-color: ${(props) => (props.isRed ? "#D15858" : "#414E9B")};
   width: 380px;
   height: 250px;
   align-self: center;

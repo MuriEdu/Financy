@@ -6,7 +6,7 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import { TouchableOpacity, View } from "react-native";
 import { motify, MotiView, useAnimationState } from "moti";
 
-export default function Contents({ title, data }) {
+export default function Contents({ title, data, buttonScreen }) {
   const [isClosed, setIsClosed] = useState(true);
   const [iconName, setIconName] = useState("chevron-up");
   const [middleHight, setMiddleHeight] = useState(245);
@@ -40,7 +40,7 @@ export default function Contents({ title, data }) {
     <MotiView state={viewAnimated}>
       <ContentsView>
         <TopView>
-          <CardText size={16}>Today, 06 dec</CardText>
+          <CardText size={16}>{title}</CardText>
           <TouchableOpacity
             onPress={() => {
               isClosed ? handleAnimateView("open") : handleAnimateView("close");
@@ -59,7 +59,7 @@ export default function Contents({ title, data }) {
         <MotiView style={{ height: 245 }} state={middleAnimated}>
           {data}
         </MotiView>
-        <BottonOptions screen={0} />
+        <BottonOptions screen={buttonScreen} />
       </ContentsView>
     </MotiView>
   );

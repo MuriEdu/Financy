@@ -66,8 +66,13 @@ export default function Home() {
         type={"Balance"}
         amount={"R$5.250,50"}
         clientName={"Murilo Eduardo Feijó Ramos"}
+        isRed={false}
       />
-      <Contents data={TransferList(fakeList)} />
+      <Contents
+        data={TransferList(fakeList)}
+        title={"Today, 06 dec"}
+        buttonScreen={0}
+      />
     </Container>
   );
 }
