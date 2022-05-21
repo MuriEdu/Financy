@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { BottonView, BottonContents, Line } from "./styles";
+import { BottonView, BottonContents, Line, ButtonText } from "./styles";
 
 export default function BottonOptions({ screen }) {
   const types = [
@@ -17,6 +17,21 @@ export default function BottonOptions({ screen }) {
       },
       rightButton: () => {
         return <MaterialIcons name="money-off" color={"#D15858"} size={55} />;
+      },
+      rightFunction: () => {
+        alert("RIGHT BUTTON");
+      },
+    },
+    // 1 => Budgets
+    {
+      leftButton: () => {
+        return <ButtonText isRed={false}>Create</ButtonText>;
+      },
+      leftFunction: () => {
+        alert("LEFT BUTTON");
+      },
+      rightButton: () => {
+        return <ButtonText isRed={true}>Delete</ButtonText>;
       },
       rightFunction: () => {
         alert("RIGHT BUTTON");

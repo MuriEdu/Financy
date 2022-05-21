@@ -25,3 +25,9 @@ export const Line = styled.View`
   width: 6px;
   background-color: #353535;
 `;
+
+export const ButtonText = styled.Text`
+  color: ${(prop) => (prop.isRed ? "#D15858" : "#9CD158")};
+  font-size: 20px;
+  font-family: "Montserrat_400Regular";
+`;

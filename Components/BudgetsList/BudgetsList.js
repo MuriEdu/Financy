@@ -1,11 +1,11 @@
 import React from "react";
 
 import {
-  TransferView,
-  TransferContainer,
-  TransferIcon,
-  TransferContent,
-  TransferContainerLeft,
+  BudgetsView,
+  BudgetsContainer,
+  BudgetsIcon,
+  BudgetsContent,
+  BudgetsContainerLeft,
   Amount,
   ContentText,
   EndText,
@@ -13,15 +13,13 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-export default function TransferList(list) {
+export default function BudgetsList(list) {
   const iconFonts = [
-    // 0 => food
     {
       render: (name) => {
         return <Ionicons name={name} size={40} color="#000" />;
       },
     },
-    // 1 => money
     {
       render: (name) => {
         return <FontAwesome name={name} size={40} color="#000" />;
@@ -30,28 +28,30 @@ export default function TransferList(list) {
   ];
 
   return (
-    <TransferContainer showsVerticalScrollIndicator={false}>
+    <BudgetsContainer showsVerticalScrollIndicator={false}>
       {list.map((item) => {
         const fltAmount = parseFloat(item.amount).toFixed(2);
 
         return (
-          <TransferView>
-            <TransferContainerLeft>
-              <TransferIcon>
+          <BudgetsView>
+            <BudgetsContainerLeft>
+              <BudgetsIcon>
                 {iconFonts[item.iconFont].render(item.iconName)}
-              </TransferIcon>
-              <TransferContent>
+              </BudgetsIcon>
+              <BudgetsContent>
                 <ContentText title size={18}>
                   {item.name}
                 </ContentText>
-                <ContentText size={16}>{item.budget}</ContentText>
-              </TransferContent>
-            </TransferContainerLeft>
-            <Amount textColor={item.isNegative}>{fltAmount}</Amount>
-          </TransferView>
+                <ContentText size={16}>{item.description}</ContentText>
+              </BudgetsContent>
+            </BudgetsContainerLeft>
+            <Amount textColor={fltAmount < 0 ? true : false}>
+              {fltAmount}
+            </Amount>
+          </BudgetsView>
         );
       })}
-      <EndText>No more transfers</EndText>
-    </TransferContainer>
+      <EndText>No more Budgets</EndText>
+    </BudgetsContainer>
   );
 }

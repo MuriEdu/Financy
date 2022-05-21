@@ -7,6 +7,7 @@ import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
 import {
+  Montserrat_400Regular,
   Montserrat_400Regular_Italic,
   Montserrat_500Medium_Italic,
   Montserrat_600SemiBold_Italic,
@@ -52,6 +53,7 @@ export default function App() {
     Montserrat_600SemiBold_Italic,
     Montserrat_500Medium_Italic,
     Montserrat_400Regular_Italic,
+    Montserrat_400Regular,
     OpenSans_400Regular,
     OpenSans_400Regular_Italic,
     OpenSans_700Bold,
