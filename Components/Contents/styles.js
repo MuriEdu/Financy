@@ -5,7 +5,7 @@ export const ContentsView = styled.View`
   margin-top: 30px;
   border-top-left-radius: 23px;
   border-top-right-radius: 23px;
-  padding: 20px;
+  height: 100%;
 `;
 
 export const TopView = styled.View`
@@ -13,4 +13,6 @@ export const TopView = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 20px;
+  margin-bottom: 0;
 `;

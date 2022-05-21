@@ -1,18 +1,17 @@
 import styled from "styled-components/native";
 
 export const BottonView = styled.View`
-  background-color: #3d3d3d;
+  background-color: #2b2b2b;
   display: flex;
   flex-direction: row;
-  flex-grow: 1;
   justify-content: space-around;
   align-items: center;
-  height: 80px;
   width: 100%;
+  height: 70px;
 `;
 
 export const BottonContents = styled.View`
-  background-color: #3d3d3d;
+  background-color: #2b2b2b;
   display: flex;
   flex-grow: 1;
   justify-content: center;

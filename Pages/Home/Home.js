@@ -5,7 +5,7 @@ import Contents from "../../Components/Contents/Contents";
 import Header from "../../Components/Header/Header";
 import BottonOptions from "../../Components/BottonOptions/BottonOptions";
 import TransferList from "../../Components/TransferList/TransferList";
-import { Container } from "../../styles";
+import { BottonContentView, Container } from "../../styles";
 
 export default function Home() {
   const fakeList = [
@@ -67,9 +67,7 @@ export default function Home() {
         amount={"R$5.250,50"}
         clientName={"Murilo Eduardo Feijó Ramos"}
       />
-
       <Contents data={TransferList(fakeList)} />
-      <BottonOptions screen={0} />
     </Container>
   );
 }

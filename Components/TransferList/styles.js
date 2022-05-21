@@ -1,7 +1,9 @@
 import styled from "styled-components/native";
 
 export const TransferContainer = styled.ScrollView`
-  height: 220px;
+  overflow: hidden;
+  margin: 20px;
+  margin-top: 0;
 `;
 
 export const TransferView = styled.View`
