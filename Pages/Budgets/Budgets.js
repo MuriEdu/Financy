@@ -30,7 +30,7 @@ export default function Home() {
       <Card
         type={"Total Balance"}
         amount={"R$5.250,50"}
-        clientName={"Camila Simão Martins"}
+        clientName={"Murilo Eduardo Feijó Ramos"}
       />
       <Contents
         title={"Current Budgets"}
