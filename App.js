@@ -1,6 +1,7 @@
 import * as React from "react";
 import Home from "./Pages/Home/Home";
 import Budgets from "./Pages/Budgets/Budgets";
+import FixedSpendings from "./Pages/FixedSpendings/FixedSpendings";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import AppLoading from "expo-app-loading";
@@ -44,6 +45,7 @@ function MyDrawer() {
     >
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Budgets" component={Budgets} />
+      <Drawer.Screen name="Fixed Spendings" component={FixedSpendings} />
     </Drawer.Navigator>
   );
 }

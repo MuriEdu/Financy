@@ -37,6 +37,21 @@ export default function BottonOptions({ screen }) {
         alert("RIGHT BUTTON");
       },
     },
+    // 2 => Fixed Spendings
+    {
+      leftButton: () => {
+        return <ButtonText isRed={false}>Create</ButtonText>;
+      },
+      leftFunction: () => {
+        alert("LEFT BUTTON");
+      },
+      rightButton: () => {
+        return <ButtonText isRed={true}>Delete</ButtonText>;
+      },
+      rightFunction: () => {
+        alert("RIGHT BUTTON");
+      },
+    },
   ];
 
   return (

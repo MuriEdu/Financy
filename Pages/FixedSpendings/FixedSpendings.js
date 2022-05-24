@@ -3,39 +3,40 @@ import { Text } from "react-native";
 import Card from "../../Components/Card/Card";
 import Contents from "../../Components/Contents/Contents";
 import Header from "../../Components/Header/Header";
-import BudgetsList from "../../Components/BudgetsList/BudgetsList";
+import SpendingsList from "../../Components/SpendingList/spendingList";
 import { Container } from "../../styles";
 
-export default function Budgets() {
-  const fakeBudgetsList = [
+export default function FixedSpendings() {
+  const fakeSpendingList = [
     {
       iconName: "money",
       iconFont: 1, //FontAwesome
-      name: "13° Salary", // use template strings
+      name: "IPTU", // use template strings
       description: "year payment",
-      amount: 2100.5,
+      amount: -2100.5,
     },
     {
       iconName: "money",
       iconFont: 1, //FontAwesome
-      name: "Salary", // use template strings
+      name: "School", // use template strings
       description: "monthly payment",
-      amount: 3150,
+      amount: -3150,
     },
   ];
 
   return (
     <Container>
-      <Header title={"Budgets"} month={"April"} />
+      <Header title={"Fixed Spendings"} month={"April"} />
       <Card
-        type={"Total Balance"}
+        type={"Total fixed spendings"}
         amount={"R$5.250,50"}
         clientName={"Murilo Eduardo Feijó Ramos"}
+        isRed={true}
       />
       <Contents
-        title={"Current Budgets"}
-        data={BudgetsList(fakeBudgetsList)}
-        buttonScreen={1}
+        title={"Current Spendings"}
+        data={SpendingsList(fakeSpendingList)}
+        buttonScreen={2}
       />
     </Container>
   );
