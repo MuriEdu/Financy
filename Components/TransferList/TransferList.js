@@ -47,7 +47,9 @@ export default function TransferList(list) {
                 <ContentText size={16}>{item.budget}</ContentText>
               </TransferContent>
             </TransferContainerLeft>
-            <Amount textColor={item.isNegative}>{fltAmount}</Amount>
+            <Amount textColor={fltAmount < 0 ? "#D15858" : "#9CD158"}>
+              {fltAmount}
+            </Amount>
           </TransferView>
         );
       })}

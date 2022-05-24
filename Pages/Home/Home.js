@@ -15,7 +15,6 @@ export default function Home() {
       name: "McDonalds", // use template strings
       budget: "Supplies",
       amount: -22.9,
-      isNegative: true,
     },
     {
       iconName: "fast-food-outline",
@@ -23,7 +22,6 @@ export default function Home() {
       name: "Jaú serve", // use template strings
       budget: "Supplies",
       amount: -130.38,
-      isNegative: true,
     },
     {
       iconName: "money",
@@ -31,7 +29,6 @@ export default function Home() {
       name: "Salary", // use template strings
       budget: "Total",
       amount: 5000,
-      isNegative: false,
     },
     {
       iconName: "fast-food-outline",
@@ -39,7 +36,6 @@ export default function Home() {
       name: "McDonalds", // use template strings
       budget: "Supplies",
       amount: -22.9,
-      isNegative: true,
     },
     {
       iconName: "fast-food-outline",
@@ -47,7 +43,6 @@ export default function Home() {
       name: "Jaú serve", // use template strings
       budget: "Supplies",
       amount: -130.38,
-      isNegative: true,
     },
     {
       iconName: "money",
@@ -55,7 +50,6 @@ export default function Home() {
       name: "Salary", // use template strings
       budget: "Total",
       amount: 5000,
-      isNegative: false,
     },
   ];
 

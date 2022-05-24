@@ -29,7 +29,7 @@ export const TransferContent = styled.View`
 `;
 
 export const Amount = styled.Text`
-  color: ${(props) => (props.textColor ? "#D15858" : "#9CD158")};
+  color: ${(props) => props.textColor};
   align-self: center;
   font-size: 20px;
   font-family: "OpenSans_700Bold";
