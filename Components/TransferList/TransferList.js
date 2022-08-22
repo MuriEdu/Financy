@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import {
   TransferView,
@@ -13,7 +13,7 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-export default function TransferList(list) {
+export default function TransferList(list, popFunction, popupState, popupData) {
   const iconFonts = [
     // 0 => food
     {
@@ -29,13 +29,20 @@ export default function TransferList(list) {
     },
   ];
 
+  const adjustedList = list.splice(1);
+
   return (
     <TransferContainer showsVerticalScrollIndicator={false}>
-      {list.map((item) => {
+      {adjustedList.map((item, index) => {
         const fltAmount = parseFloat(item.amount).toFixed(2);
 
         return (
-          <TransferView>
+          <TransferView
+            onPress={() => {
+              popupData(index + 1);
+              popFunction(!popupState);
+            }}
+          >
             <TransferContainerLeft>
               <TransferIcon>
                 {iconFonts[item.iconFont].render(item.iconName)}

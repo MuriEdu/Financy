@@ -3,7 +3,7 @@ import { Text } from "react-native";
 import Card from "../../Components/Card/Card";
 import Contents from "../../Components/Contents/Contents";
 import Header from "../../Components/Header/Header";
-import SpendingsList from "../../Components/SpendingList/spendingList";
+import SpendingsList from "../../Components/SpendingList/SpendingList";
 import { Container } from "../../styles";
 
 export default function FixedSpendings() {

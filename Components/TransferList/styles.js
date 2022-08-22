@@ -6,7 +6,7 @@ export const TransferContainer = styled.ScrollView`
   margin-top: 0;
 `;
 
-export const TransferView = styled.View`
+export const TransferView = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

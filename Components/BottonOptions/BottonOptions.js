@@ -2,6 +2,7 @@ import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { BottonView, BottonContents, Line, ButtonText } from "./styles";
+import PopupContent from "../PopupContent/PopupContent";
 
 export default function BottonOptions({ screen }) {
   const types = [
@@ -13,7 +14,7 @@ export default function BottonOptions({ screen }) {
         );
       },
       leftFunction: () => {
-        alert("LEFT BUTTON");
+        alert("RIGHT BUTTON");
       },
       rightButton: () => {
         return <MaterialIcons name="money-off" color={"#D15858"} size={55} />;
