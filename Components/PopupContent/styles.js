@@ -36,6 +36,12 @@ export const InsidePopView = styled.View`
   margin-top: 15px;
 `;
 
+export const BottonPopView = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`;
+
 export const AmountPopText = styled.Text`
   color: ${(props) => (props.amountType ? "#9CD158" : "#D15858")};
   font-size: 30px;

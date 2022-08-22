@@ -5,9 +5,11 @@ import {
   TopPopView,
   MidPopView,
   InsidePopView,
+  BottonPopView,
   AmountPopText,
 } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 export default function PopupContent({ isOpen, data, popFunction }) {
   const amountType = data.amount < 0 ? false : true;
@@ -38,6 +40,16 @@ export default function PopupContent({ isOpen, data, popFunction }) {
           <PopupText isTitle={true}>Budget</PopupText>
           <PopupText isTitle={false}>{data.budget}</PopupText>
         </InsidePopView>
+        <BottonPopView>
+          <MaterialIcons
+            name="edit"
+            size={30}
+            color="#fff"
+            onPress={() => {
+              alert("EDIT PRESSED");
+            }}
+          />
+        </BottonPopView>
       </MidPopView>
     </PopupView>
   );
