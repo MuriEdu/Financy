@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   PopupView,
   PopupText,
@@ -7,6 +7,8 @@ import {
   InsidePopView,
   BottonPopView,
   AmountPopText,
+  PopupTextEditable,
+  PopupInputEditable,
 } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -14,6 +16,10 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 export default function PopupContent({ isOpen, data, popFunction }) {
   const amountType = data.amount < 0 ? false : true;
   const amountAdjusted = amountType ? data.amount : data.amount * -1;
+
+  const [editMode, setEditMode] = useState(false);
+  const [dateValue, setDateValue] = useState(data.transferDate);
+  const [budgetValue, setBudgetValue] = useState(data.budget);
 
   return (
     <PopupView isOpen={isOpen}>
@@ -24,21 +30,44 @@ export default function PopupContent({ isOpen, data, popFunction }) {
           size={40}
           color={"#D15858"}
           onPress={() => {
+            setEditMode(false);
             popFunction(false);
           }}
         />
       </TopPopView>
       <MidPopView>
-        <AmountPopText amountType={amountType}>
+        <AmountPopText amountType={amountType} edit={editMode}>
           {"R$ " + amountAdjusted.toFixed(2)}
         </AmountPopText>
         <InsidePopView>
           <PopupText isTitle={true}>Transfer Date</PopupText>
-          <PopupText isTitle={false}>{data.transferDate}</PopupText>
+          <PopupTextEditable isTitle={false} edit={editMode}>
+            {data.transferDate}
+          </PopupTextEditable>
+          <PopupInputEditable
+            onChangeText={(e) => {
+              setDateValue(e.value);
+            }}
+            value={dateValue}
+            isTitle={false}
+            edit={editMode}
+            keyboardAppearance={"dark"}
+          ></PopupInputEditable>
         </InsidePopView>
         <InsidePopView>
           <PopupText isTitle={true}>Budget</PopupText>
-          <PopupText isTitle={false}>{data.budget}</PopupText>
+          <PopupTextEditable isTitle={false} edit={editMode}>
+            {data.budget}
+          </PopupTextEditable>
+          <PopupInputEditable
+            onChangeText={(e) => {
+              setBudgetValue(e.value);
+            }}
+            value={budgetValue}
+            isTitle={false}
+            edit={editMode}
+            keyboardAppearance={"dark"}
+          ></PopupInputEditable>
         </InsidePopView>
         <BottonPopView>
           <MaterialIcons
@@ -46,7 +75,9 @@ export default function PopupContent({ isOpen, data, popFunction }) {
             size={30}
             color="#fff"
             onPress={() => {
-              alert("EDIT PRESSED");
+              setDateValue(data.transferDate);
+              setBudgetValue(data.budget);
+              setEditMode(!editMode);
             }}
           />
         </BottonPopView>

@@ -43,6 +43,23 @@ export const BottonPopView = styled.View`
 `;
 
 export const AmountPopText = styled.Text`
+  display: ${(props) => (props.edit ? "none" : "flex")};
   color: ${(props) => (props.amountType ? "#9CD158" : "#D15858")};
   font-size: 30px;
+`;
+
+export const PopupTextEditable = styled.Text`
+  display: ${(props) => (props.edit ? "none" : "flex")};
+  font-size: ${(props) => (props.isTitle ? 25 : 20)}px;
+  font-family: ${(props) =>
+    props.isTitle ? "OpenSans_700Bold" : "OpenSans_400Regular_Italic"};
+  color: #fff;
+`;
+
+export const PopupInputEditable = styled.TextInput`
+  display: ${(props) => (props.edit ? "flex" : "none")};
+  font-size: ${(props) => (props.isTitle ? 25 : 20)}px;
+  font-family: ${(props) =>
+    props.isTitle ? "OpenSans_700Bold" : "OpenSans_400Regular_Italic"};
+  color: #fff;
 `;
