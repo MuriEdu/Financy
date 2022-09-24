@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=react native&message=framework&color=blue&style=for-the-badge&logo=react"/>
   <img src="https://img.shields.io/static/v1?label=JavaScript&message=Main Technology&color=blue&style=for-the-badge&logo=javascript"/>
-  <img src="https://img.shields.io/static/v1?label=license&message=GPL&color=green&style=for-the-badge"/>
+  <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=green&style=for-the-badge"/>
   <img src="https://img.shields.io/static/v1?label=status&message=in progress&color=orange&style=for-the-badge"/>
 <p>
 
