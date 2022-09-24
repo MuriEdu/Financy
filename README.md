@@ -33,3 +33,9 @@ For do that, the idea is put all informations about earns, spends and budgets in
 - [Styled Components](https://styled-components.com/)
 
 ## Images
+
+<div style={ flex-direction: 'row",}>
+  <img src="https://github.com/MuriEdu/Financy/blob/main/assets/Home.png" width="270" height="480" /> 
+  <img src="https://github.com/MuriEdu/Financy/blob/main/assets/Home%20-%20Transfer%20card%20(Debit).png" width="270" height="480" />
+  <img src="https://github.com/MuriEdu/Financy/blob/main/assets/Fixed%20spendings.png" width="270" height="480" />
+</div>
