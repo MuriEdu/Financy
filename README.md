@@ -31,6 +31,7 @@ For do that, the idea is put all informations about earns, spends and budgets in
 - [Moti](https://moti.fyi/)
 - [RN Vector Icons](https://oblador.github.io/react-native-vector-icons/)
 - [Styled Components](https://styled-components.com/)
+- [React Native Currency Input](https://www.npmjs.com/package/react-native-currency-input)
 
 ## Images
 
