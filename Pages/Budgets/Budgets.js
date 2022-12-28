@@ -27,11 +27,7 @@ export default function Budgets() {
   return (
     <Container>
       <Header title={"Budgets"} />
-      <Card
-        type={"Total Balance"}
-        amount={"R$5.250,50"}
-        clientName={"Murilo Eduardo Feijó Ramos"}
-      />
+      <Card type={"Total Balance"} isRed={false} typeNum={1} />
       <Contents
         title={"Current Budgets"}
         data={BudgetsList(fakeBudgetsList)}

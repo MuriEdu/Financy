@@ -5,6 +5,7 @@ import Welcome3 from "./Pages/Welcome/Welcome3";
 import Home from "./Pages/Home/Home";
 import Budgets from "./Pages/Budgets/Budgets";
 import FixedSpendings from "./Pages/FixedSpendings/FixedSpendings";
+import Test from "./Pages/Test/Test";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -24,6 +25,7 @@ import {
 } from "@expo-google-fonts/open-sans";
 import { Roboto_300Light, Roboto_500Medium } from "@expo-google-fonts/roboto";
 import { Poppins_400Regular } from "@expo-google-fonts/poppins";
+import { getUserData } from "./Backend/Storage";
 
 // Drawr menu config
 const Drawer = createDrawerNavigator();
@@ -52,6 +54,7 @@ function MyDrawer() {
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Budgets" component={Budgets} />
       <Drawer.Screen name="Fixed Spendings" component={FixedSpendings} />
+      <Drawer.Screen name="Test" component={Test} />
     </Drawer.Navigator>
   );
 }
@@ -88,6 +91,8 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
+
+  getUserData();
 
   return (
     <>

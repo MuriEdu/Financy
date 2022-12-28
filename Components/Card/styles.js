@@ -1,3 +1,4 @@
+import { StyleSheet } from "react-native";
 import styled from "styled-components/native";
 
 export const CardView = styled.View`
@@ -58,3 +59,15 @@ export const EditButton = styled.TouchableOpacity`
 export const ConfirmButton = styled.TouchableOpacity`
   display: ${(props) => (props.isEditable ? "flex" : "none")};
 `;
+
+export const styles = StyleSheet.create({
+  currencyInput: (isEditable) => ({
+    display: isEditable ? "flex" : "none",
+    color: "#fff",
+    minWidth: 150,
+    fontFamily: "OpenSans_400Regular",
+    borderBottomWidth: 2,
+    borderBottomColor: "#fff",
+    fontSize: 25,
+  }),
+});

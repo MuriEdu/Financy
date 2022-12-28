@@ -27,12 +27,7 @@ export default function FixedSpendings() {
   return (
     <Container>
       <Header title={"Fixed Spendings"} />
-      <Card
-        type={"Total fixed spendings"}
-        amount={"R$5.250,50"}
-        clientName={"Murilo Eduardo Feijó Ramos"}
-        isRed={true}
-      />
+      <Card type={"Total fixed spendings"} isRed={true} typeNum={2} />
       <Contents
         title={"Current Spendings"}
         data={SpendingsList(fakeSpendingList)}

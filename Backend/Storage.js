@@ -21,9 +21,41 @@ export async function isFirstTime() {
   }
 }
 
+export let userData = {
+  name: "Financer",
+  amount: 0,
+  defaultBudget: {
+    name: "Default",
+    amount: 0,
+  },
+  totalBudgets: 0,
+  budgets: [],
+  totalSpendings: 0,
+  spendings: [],
+  transfers: [],
+};
+
+export async function getUserData() {
+  try {
+    const data = await AsyncStorage.getItem("@financy-data");
+    const jsonValue = JSON.parse(data);
+    userData = jsonValue;
+  } catch (e) {
+    alert(e);
+  }
+}
+
 export async function saveData(object) {
   try {
     const jsonValue = JSON.stringify(object);
     await AsyncStorage.setItem("@financy-data", jsonValue);
+  } catch (e) {
+    alert("error " + e);
+  }
+}
+
+export async function deleteData() {
+  try {
+    await AsyncStorage.removeItem("@financy-data");
   } catch (e) {}
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getUserData } from "../../Backend/Storage";
 import { Text, View } from "react-native";
 import Card from "../../Components/Card/Card";
 import Contents from "../../Components/Contents/Contents";
@@ -9,6 +10,8 @@ import PopupContent from "../../Components/PopupContent/PopupContent";
 import { BottonContentView, Container } from "../../styles";
 
 export default function Home() {
+  getUserData();
+
   const fakeList = [
     {
       iconName: "null",
@@ -100,12 +103,7 @@ export default function Home() {
         popFunction={setPopup}
       />
       <Header title={"Financy"} />
-      <Card
-        type={"Balance"}
-        amount={"R$ 5250.50"} // Needs chage font
-        clientName={"Murilo Eduardo Feijó Ramos"} // Needs to change font
-        isRed={false}
-      />
+      <Card type={"Balance"} isRed={false} typeNum={0} />
       <Contents
         data={TransferList(fakeList, setPopup, Popup, setPopupData)}
         title={date}

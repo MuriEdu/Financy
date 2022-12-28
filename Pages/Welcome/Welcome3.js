@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native";
+import { getUserData, saveData } from "../../Backend/Storage";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import {
   WelcomeText,
@@ -16,12 +16,10 @@ import { MotiView } from "moti";
 
 export default function Welcome3() {
   const navigation = useNavigation();
-  isFirstTime();
-
   return (
     <WelcomeView>
       <MotiView
-        from={{ translateX: -400 }}
+        from={{ translateX: 400 }}
         animate={{ translateX: 0 }}
         transition={{
           type: "timing",
@@ -33,7 +31,7 @@ export default function Welcome3() {
         </WelcomeTitleView>
       </MotiView>
       <MotiView
-        from={{ translateX: -400 }}
+        from={{ translateX: 400 }}
         animate={{ translateX: 0 }}
         transition={{
           type: "timing",
@@ -51,6 +49,7 @@ export default function Welcome3() {
       </MotiView>
       <NextStepButtom
         onPress={() => {
+          getUserData();
           navigation.navigate("Home");
         }}
       >
@@ -59,7 +58,7 @@ export default function Welcome3() {
           animate={{ opacity: 1 }}
           transition={{
             type: "timing",
-            duration: 3200,
+            duration: 3000,
           }}
         >
           <AntDesign name="right" size={35} color={"#fff"} />
