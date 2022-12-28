@@ -26,7 +26,7 @@ export default function Budgets() {
 
   return (
     <Container>
-      <Header title={"Budgets"} month={"April"} />
+      <Header title={"Budgets"} />
       <Card
         type={"Total Balance"}
         amount={"R$5.250,50"}

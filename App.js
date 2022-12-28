@@ -1,9 +1,13 @@
 import * as React from "react";
+import Welcome from "./Pages/Welcome/Welcome";
+import Welcome2 from "./Pages/Welcome/Welcome2";
+import Welcome3 from "./Pages/Welcome/Welcome3";
 import Home from "./Pages/Home/Home";
 import Budgets from "./Pages/Budgets/Budgets";
 import FixedSpendings from "./Pages/FixedSpendings/FixedSpendings";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
@@ -19,7 +23,9 @@ import {
   OpenSans_400Regular_Italic,
 } from "@expo-google-fonts/open-sans";
 import { Roboto_300Light, Roboto_500Medium } from "@expo-google-fonts/roboto";
+import { Poppins_400Regular } from "@expo-google-fonts/poppins";
 
+// Drawr menu config
 const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
@@ -50,6 +56,21 @@ function MyDrawer() {
   );
 }
 
+const Stack = createNativeStackNavigator();
+function MyStack() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Welcome"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="Home" component={MyDrawer} />
+      <Stack.Screen name="Welcome" component={Welcome} />
+      <Stack.Screen name="Welcome2" component={Welcome2} />
+      <Stack.Screen name="Welcome3" component={Welcome3} />
+    </Stack.Navigator>
+  );
+}
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Montserrat_600SemiBold_Italic,
@@ -61,6 +82,7 @@ export default function App() {
     OpenSans_700Bold,
     Roboto_300Light,
     Roboto_500Medium,
+    Poppins_400Regular,
   });
 
   if (!fontsLoaded) {
@@ -71,7 +93,7 @@ export default function App() {
     <>
       <StatusBar backgroundColor="#000" />
       <NavigationContainer>
-        <MyDrawer />
+        <MyStack />
       </NavigationContainer>
     </>
   );

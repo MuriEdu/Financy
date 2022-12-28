@@ -48,6 +48,12 @@ export const AmountPopText = styled.Text`
   font-size: 30px;
 `;
 
+export const AmountPopTextEditable = styled.TextInput`
+  display: ${(props) => (props.edit ? "flex" : "none")};
+  color: ${(props) => (props.amountType ? "#9CD158" : "#D15858")};
+  font-size: 30px;
+`;
+
 export const PopupTextEditable = styled.Text`
   display: ${(props) => (props.edit ? "none" : "flex")};
   font-size: ${(props) => (props.isTitle ? 25 : 20)}px;

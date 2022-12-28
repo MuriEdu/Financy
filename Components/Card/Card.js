@@ -1,25 +1,43 @@
-import React from "react";
-import { Text } from "react-native";
-import { TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { View } from "react-native";
 import {
   CardView,
   CardText,
+  CardInput,
   TopView,
   MidView,
   RightMidView,
   BottonView,
+  EditButton,
+  ConfirmButton,
 } from "./styles";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Feather from "react-native-vector-icons/Feather";
 
 export default function Card({ type, amount, clientName, isRed }) {
+  const [editable, setEditable] = useState(false);
+  const [amountValue, setAmountValue] = useState(amount);
+
   return (
     <CardView isRed={isRed}>
       <TopView>
         <CardText size={17}>{type}</CardText>
-        <TouchableOpacity>
+        <EditButton
+          isEditable={editable}
+          onPress={() => {
+            setEditable(!editable);
+          }}
+        >
           <Feather name="edit" color={"#000"} size={27} />
-        </TouchableOpacity>
+        </EditButton>
+        <ConfirmButton
+          isEditable={editable}
+          onPress={() => {
+            setEditable(!editable);
+          }}
+        >
+          <Feather name="check-square" color={"#000"} size={27} />
+        </ConfirmButton>
       </TopView>
       <MidView>
         <View>
@@ -30,7 +48,17 @@ export default function Card({ type, amount, clientName, isRed }) {
           />
         </View>
         <RightMidView>
-          <CardText size={25}>{amount}</CardText>
+          <CardInput
+            isEditable={editable}
+            size={25}
+            value={amountValue}
+            onChangeText={(e) => {
+              setAmountValue(e);
+            }}
+          />
+          <CardText isEditable={editable} size={25}>
+            {amount}
+          </CardText>
         </RightMidView>
       </MidView>
       <BottonView>

@@ -5,6 +5,7 @@ import Contents from "../../Components/Contents/Contents";
 import Header from "../../Components/Header/Header";
 import TransferList from "../../Components/TransferList/TransferList";
 import PopupContent from "../../Components/PopupContent/PopupContent";
+
 import { BottonContentView, Container } from "../../styles";
 
 export default function Home() {
@@ -98,11 +99,11 @@ export default function Home() {
         data={fakeList[popupData]}
         popFunction={setPopup}
       />
-      <Header title={"Financy"} month={"April"} />
+      <Header title={"Financy"} />
       <Card
         type={"Balance"}
-        amount={"R$5.250,50"}
-        clientName={"Murilo Eduardo Feijó Ramos"}
+        amount={"R$ 5250.50"} // Needs chage font
+        clientName={"Murilo Eduardo Feijó Ramos"} // Needs to change font
         isRed={false}
       />
       <Contents

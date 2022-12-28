@@ -26,7 +26,7 @@ export default function FixedSpendings() {
 
   return (
     <Container>
-      <Header title={"Fixed Spendings"} month={"April"} />
+      <Header title={"Fixed Spendings"} />
       <Card
         type={"Total fixed spendings"}
         amount={"R$5.250,50"}

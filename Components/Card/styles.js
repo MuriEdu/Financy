@@ -10,8 +10,16 @@ export const CardView = styled.View`
 `;
 
 export const CardText = styled.Text`
+  display: ${(props) => (props.isEditable ? "none" : "flex")};
   font-family: "OpenSans_400Regular";
   color: #fff;
+  font-size: ${(props) => props.size || `${15}px`};
+`;
+
+export const CardInput = styled.TextInput`
+  display: ${(props) => (props.isEditable ? "flex" : "none")};
+  font-family: "OpenSans_400Regular";
+  color: #8a8a8a;
   font-size: ${(props) => props.size || `${15}px`};
 `;
 
@@ -42,4 +50,11 @@ export const BottonView = styled.View`
   height: 35%;
   margin-left: 25px;
   justify-content: flex-end;
+`;
+
+export const EditButton = styled.TouchableOpacity`
+  display: ${(props) => (props.isEditable ? "none" : "flex")};
+`;
+export const ConfirmButton = styled.TouchableOpacity`
+  display: ${(props) => (props.isEditable ? "flex" : "none")};
 `;
