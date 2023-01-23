@@ -20,7 +20,11 @@ export const CardText = styled.Text`
 export const CardInput = styled.TextInput`
   display: ${(props) => (props.isEditable ? "flex" : "none")};
   font-family: "OpenSans_400Regular";
-  color: #8a8a8a;
+  color: #fff;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  width: 250px;
+  border-color: #fff;
   font-size: ${(props) => props.size || `${15}px`};
 `;
 

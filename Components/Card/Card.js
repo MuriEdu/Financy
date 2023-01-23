@@ -47,6 +47,7 @@ export default function Card({ type, isRed, typeNum }) {
 
   const [editable, setEditable] = useState(false);
   const [amountValue, setAmountValue] = useState(getAmount());
+  const [name, setName] = useState(data.name);
 
   return (
     <CardView isRed={isRed}>
@@ -64,6 +65,7 @@ export default function Card({ type, isRed, typeNum }) {
           isEditable={editable}
           onPress={() => {
             const newObj = userData;
+            newObj.name = name;
             const A = () => {
               newObj.amount = amountValue;
             };
@@ -109,7 +111,16 @@ export default function Card({ type, isRed, typeNum }) {
         </RightMidView>
       </MidView>
       <BottonView>
-        <CardText size={15}>{data.name}</CardText>
+        <CardText isEditable={editable} size={15}>
+          {name}
+        </CardText>
+        <CardInput
+          value={name}
+          isEditable={editable}
+          onChangeText={(e) => {
+            editable ? setName(e) : setName(name);
+          }}
+        />
       </BottonView>
     </CardView>
   );

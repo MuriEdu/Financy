@@ -26,7 +26,7 @@ export default function FixedSpendings() {
 
   return (
     <Container>
-      <Header title={"Fixed Spendings"} />
+      <Header title={"Fixed Spendings"} drawer={true} />
       <Card type={"Total fixed spendings"} isRed={true} typeNum={2} />
       <Contents
         title={"Current Spendings"}

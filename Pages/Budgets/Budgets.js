@@ -26,7 +26,7 @@ export default function Budgets() {
 
   return (
     <Container>
-      <Header title={"Budgets"} />
+      <Header title={"Budgets"} drawer={true} />
       <Card type={"Total Balance"} isRed={false} typeNum={1} />
       <Contents
         title={"Current Budgets"}

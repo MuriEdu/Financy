@@ -2,9 +2,11 @@ import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { BottonView, BottonContents, Line, ButtonText } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 import PopupContent from "../PopupContent/PopupContent";
 
-export default function BottonOptions({ screen }) {
+export default function BottonOptions({ screen, addFunction }) {
+  const navigation = useNavigation();
   const types = [
     // 0 => Home
     {
@@ -14,7 +16,7 @@ export default function BottonOptions({ screen }) {
         );
       },
       leftFunction: () => {
-        alert("RIGHT BUTTON");
+        navigation.navigate("NewTransfer");
       },
       rightButton: () => {
         return <MaterialIcons name="money-off" color={"#D15858"} size={55} />;
@@ -51,6 +53,21 @@ export default function BottonOptions({ screen }) {
       },
       rightFunction: () => {
         alert("RIGHT BUTTON");
+      },
+    },
+    // 3 => New Transfers
+    {
+      leftButton: () => {
+        return <ButtonText isRed={false}>Add</ButtonText>;
+      },
+      leftFunction: () => {
+        addFunction();
+      },
+      rightButton: () => {
+        return <ButtonText isRed={true}>Cancel</ButtonText>;
+      },
+      rightFunction: () => {
+        navigation.navigate("Home");
       },
     },
   ];

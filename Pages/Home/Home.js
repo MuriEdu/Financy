@@ -102,7 +102,7 @@ export default function Home() {
         data={fakeList[popupData]}
         popFunction={setPopup}
       />
-      <Header title={"Financy"} />
+      <Header title={"Financy"} drawer={true} />
       <Card type={"Balance"} isRed={false} typeNum={0} />
       <Contents
         data={TransferList(fakeList, setPopup, Popup, setPopupData)}

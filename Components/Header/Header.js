@@ -1,10 +1,17 @@
 import React from "react";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import { TouchableOpacity, View } from "react-native";
-import { Container, TextView, Title, MonthText, MenuView } from "./styles";
+import {
+  Container,
+  TextView,
+  Title,
+  MonthText,
+  MenuView,
+  DrawerButton,
+} from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Header({ title }) {
+export default function Header({ title, drawer }) {
   const navigation = useNavigation();
 
   const d = new Date();
@@ -31,13 +38,14 @@ export default function Header({ title }) {
         <MonthText>{months[month]}</MonthText>
       </TextView>
       <MenuView>
-        <TouchableOpacity
+        <DrawerButton
+          isVisible={drawer}
           onPress={() => {
             navigation.openDrawer();
           }}
         >
           <FeatherIcon name="chevron-left" size={40} color={"#fff"} />
-        </TouchableOpacity>
+        </DrawerButton>
       </MenuView>
     </Container>
   );

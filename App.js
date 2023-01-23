@@ -5,6 +5,7 @@ import Welcome3 from "./Pages/Welcome/Welcome3";
 import Home from "./Pages/Home/Home";
 import Budgets from "./Pages/Budgets/Budgets";
 import FixedSpendings from "./Pages/FixedSpendings/FixedSpendings";
+import NewTransfer from "./Pages/NewTransfer/NewTransfer";
 import Test from "./Pages/Test/Test";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -70,6 +71,7 @@ function MyStack() {
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="Welcome2" component={Welcome2} />
       <Stack.Screen name="Welcome3" component={Welcome3} />
+      <Stack.Screen name="NewTransfer" component={NewTransfer} />
     </Stack.Navigator>
   );
 }
