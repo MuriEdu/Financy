@@ -1,5 +1,5 @@
-import { MotiView } from "moti";
 import React, { useState } from "react";
+import { MotiView } from "moti";
 import { getUserData, userData } from "../../Backend/Storage";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import BottonOptions from "../../Components/BottonOptions/BottonOptions";
@@ -17,14 +17,35 @@ import {
   NtHeaderView,
   styles,
   NtDateButton,
+  NtModal,
 } from "./styles";
+import { Modal } from "react-native";
+import BudgetsList from "../../Components/BudgetsList/BudgetsList";
 
 export default function NewTransfer() {
+  const fakeBudgetsList = [
+    {
+      iconName: "money",
+      iconFont: 1, //FontAwesome
+      name: "13° Salary", // use template strings
+      description: "year payment",
+      amount: 2100.5,
+    },
+    {
+      iconName: "money",
+      iconFont: 1, //FontAwesome
+      name: "Salary", // use template strings
+      description: "monthly payment",
+      amount: 3150,
+    },
+  ];
+
   const [title, setTitle] = useState();
   const [value, setValue] = useState(formatNumber(0));
   const [date, setDate] = useState(formatDate(new Date()));
   const [budget, setBudget] = useState();
   const [dateInputHandler, setDateInputHandler] = useState(false);
+  const [budgetInputHandler, setBudgetInputHandler] = useState(false);
 
   function createTransferObj(title, value, date, budget) {
     const obj = {
@@ -108,12 +129,15 @@ export default function NewTransfer() {
               <NtFormText>Value</NtFormText>
             </NtInputView>
             <NtInputView>
-              <NtInput
-                value={budget}
-                onChangeText={(e) => {
-                  setBudget(e);
-                }}
-              />
+              <NtDateButton>
+                <NtFormText
+                  onPress={() => {
+                    setBudgetInputHandler(true);
+                  }}
+                >
+                  {date}
+                </NtFormText>
+              </NtDateButton>
               <NtFormText>Budget</NtFormText>
             </NtInputView>
             <NtInputView>

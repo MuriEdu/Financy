@@ -65,6 +65,16 @@ export const NtDateButton = styled.TouchableOpacity`
   border-color: #fff;
 `;
 
+export const NtModal = styled.Modal`
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
+  position: absolute;
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+`;
+
 export const styles = StyleSheet.create({
   moti: {
     display: "flex",
