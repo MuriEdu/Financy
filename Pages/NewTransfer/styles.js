@@ -70,4 +70,13 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexGrow: 1,
   },
+  currencyInput: {
+    color: "#fff",
+    fontFamily: "OpenSans_400Regular",
+    fontSize: 22,
+    borderBottomWidth: 2,
+    borderBottomColor: "#fff",
+    width: "100%",
+    paddingLeft: 10,
+  },
 });

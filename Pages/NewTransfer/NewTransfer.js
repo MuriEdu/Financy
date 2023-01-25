@@ -4,6 +4,7 @@ import { getUserData, userData } from "../../Backend/Storage";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import BottonOptions from "../../Components/BottonOptions/BottonOptions";
 import Header from "../../Components/Header/Header";
+import CurrencyInput, { formatNumber } from "react-native-currency-input";
 import {
   NtContentView,
   NtFormText,
@@ -17,11 +18,10 @@ import {
   styles,
   NtDateButton,
 } from "./styles";
-import { Modal, View } from "react-native";
 
 export default function NewTransfer() {
   const [title, setTitle] = useState();
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(formatNumber(0));
   const [date, setDate] = useState(formatDate(new Date()));
   const [budget, setBudget] = useState();
   const [dateInputHandler, setDateInputHandler] = useState(false);
@@ -97,11 +97,13 @@ export default function NewTransfer() {
               <NtFormText>Title</NtFormText>
             </NtInputView>
             <NtInputView>
-              <NtInput
+              <CurrencyInput
+                style={styles.currencyInput}
                 value={value}
-                onChangeText={(e) => {
-                  setValue(e);
-                }}
+                onChangeValue={setValue}
+                prefix="R$"
+                precision={2}
+                minValue={0}
               />
               <NtFormText>Value</NtFormText>
             </NtInputView>
