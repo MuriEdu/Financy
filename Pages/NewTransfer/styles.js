@@ -14,7 +14,7 @@ export const NtView = styled.View`
 
 export const NtContentView = styled.View`
   margin-top: 25px;
-  display: ${(props) => (props.isVisible ? "flex" : "none")};
+  display: flex;
   flex-grow: 1;
   align-items: center;
   border-top-left-radius: 23px;

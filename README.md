@@ -8,23 +8,25 @@
 <p>
 
 ## Topics
+
 - [Project Description](#project-description)
 - [Features](#features)
 - [Requirements and Libraries](#requirements-and-libraries)
 - [Images](#images)
-  
+
 ## Project Description
 
 > This project is a app created with react native, and the objective is help people with their finances.  
-For do that, the idea is put all informations about earns, spends and budgets in just one place.
+> For do that, the idea is put all informations about earns, spends and budgets in just one place.
 
 ## Features
 
 :white_check_mark: Show informations about your amount and transfers  
 :exclamation: Register your earns and spends.  
-:exclamation: Create different budgets. 
+:exclamation: Create different budgets.
 
 ## Requirements and Libraries
+
 - [Node](https://nodejs.org/en/)
 - [Expo](https://expo.dev/)
 - [React Navigation](https://reactnavigation.org/)
@@ -32,6 +34,7 @@ For do that, the idea is put all informations about earns, spends and budgets in
 - [RN Vector Icons](https://oblador.github.io/react-native-vector-icons/)
 - [Styled Components](https://styled-components.com/)
 - [React Native Currency Input](https://www.npmjs.com/package/react-native-currency-input)
+- [React Native Modal Datetime Picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
 
 ## Images
 

@@ -1,7 +1,7 @@
 import { MotiView } from "moti";
 import React, { useState } from "react";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { getUserData, userData } from "../../Backend/Storage";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import BottonOptions from "../../Components/BottonOptions/BottonOptions";
 import Header from "../../Components/Header/Header";
 import {
@@ -17,14 +17,14 @@ import {
   styles,
   NtDateButton,
 } from "./styles";
-import { View } from "react-native";
+import { Modal, View } from "react-native";
 
 export default function NewTransfer() {
   const [title, setTitle] = useState();
   const [value, setValue] = useState();
   const [date, setDate] = useState(formatDate(new Date()));
   const [budget, setBudget] = useState();
-  const [dateInputHandler, setDateInputHandler] = useState(true);
+  const [dateInputHandler, setDateInputHandler] = useState(false);
 
   function createTransferObj(title, value, date, budget) {
     const obj = {
@@ -57,28 +57,21 @@ export default function NewTransfer() {
     return `${date}/${month}/${year}`;
   }
 
-  function inputDate() {
-    if (dateInputHandler === true) {
-      return <View></View>;
-    } else {
-      return (
-        <DateTimePicker
-          themeVariant="dark"
-          mode="date"
-          value={new Date()}
-          onChange={(e) => {
-            const dateString = new Date(e.nativeEvent.timestamp);
-            const string = formatDate(dateString);
-            setDate(string);
-            setDateInputHandler(!dateInputHandler);
-          }}
-        />
-      );
-    }
-  }
-
   return (
     <NtView>
+      <DateTimePickerModal
+        isDarkModeEnabled={true}
+        isVisible={dateInputHandler}
+        mode="date"
+        onConfirm={(d) => {
+          const selectedDate = new Date(d);
+          setDate(formatDate(selectedDate));
+          setDateInputHandler(false);
+        }}
+        onCancel={() => {
+          setDateInputHandler(false);
+        }}
+      />
       <Header title={"Financy"} />
       <MotiView
         style={styles.moti}
@@ -89,7 +82,7 @@ export default function NewTransfer() {
           duration: 500,
         }}
       >
-        <NtContentView isVisible={dateInputHandler}>
+        <NtContentView>
           <NtNameView>
             <NtNameText isEarn={true}>New Earn</NtNameText>
           </NtNameView>
@@ -125,7 +118,7 @@ export default function NewTransfer() {
               <NtDateButton>
                 <NtFormText
                   onPress={() => {
-                    setDateInputHandler(!dateInputHandler);
+                    setDateInputHandler(true);
                   }}
                 >
                   {date}
@@ -134,10 +127,6 @@ export default function NewTransfer() {
               <NtFormText>Date</NtFormText>
             </NtInputView>
           </NtFormView>
-        </NtContentView>
-        {/* Data Input */}
-        <NtContentView isVisible={!dateInputHandler}>
-          {inputDate()}
         </NtContentView>
       </MotiView>
       <BottonOptions screen={3} addFunction={addEarn} />
