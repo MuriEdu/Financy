@@ -18,12 +18,12 @@ import {
   NtHeaderView,
   styles,
   NtDateButton,
-  NtModal,
 } from "./styles";
-import { Modal } from "react-native";
-import BudgetsList from "../../Components/BudgetsList/BudgetsList";
+import { useNavigation } from "@react-navigation/native";
 
 export default function NewTransfer() {
+  const navigation = useNavigation();
+
   const fakeBudgetsList = [
     {
       iconName: "money",
@@ -41,7 +41,7 @@ export default function NewTransfer() {
     },
   ];
 
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState("");
   const [value, setValue] = useState(formatNumber(0));
   const [date, setDate] = useState(formatDate(new Date()));
   const [budget, setBudget] = useState(fakeBudgetsList[0].name);
@@ -60,8 +60,12 @@ export default function NewTransfer() {
   function addEarn() {
     const data = getUserData();
     const editableData = userData;
-    editableData.transfers.push(createTransferObj(title, value, date, budget));
-    console.log(editableData);
+    const formatedTitle =
+      title.trim() === "" ? "Unnamed Transfer" : title.trim();
+    editableData.transfers.push(
+      createTransferObj(formatedTitle, value, date, budget)
+    );
+    navigation.navigate("Home");
   }
 
   function formatDate(inputDate) {
@@ -80,6 +84,14 @@ export default function NewTransfer() {
 
   function getSelectedBudget(budget) {
     setBudget(budget.name);
+  }
+
+  function getSelectedValue(value) {
+    if (value === null) {
+      setValue(0);
+    } else {
+      setValue(value);
+    }
   }
 
   return (
@@ -113,19 +125,14 @@ export default function NewTransfer() {
           </NtNameView>
           <NtFormView>
             <NtInputView>
-              <NtInput
-                value={title}
-                onChangeText={(e) => {
-                  setTitle(e);
-                }}
-              />
+              <NtInput value={title} onChangeText={setTitle} />
               <NtFormText>Title</NtFormText>
             </NtInputView>
             <NtInputView>
               <CurrencyInput
                 style={styles.currencyInput}
                 value={value}
-                onChangeValue={setValue}
+                onChangeValue={getSelectedValue}
                 prefix="R$"
                 precision={2}
                 minValue={0}

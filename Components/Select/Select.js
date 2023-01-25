@@ -14,6 +14,7 @@ import {
   SlTextButtons,
   styles,
 } from "./styles";
+import { formatNumber } from "react-native-currency-input";
 
 export default function Select({ Title, List, Function }) {
   const [open, setOpen] = useState(false);
@@ -30,7 +31,13 @@ export default function Select({ Title, List, Function }) {
       >
         <SlList>
           <SlText>{value.name}</SlText>
-          <SlText>{value.amount}</SlText>
+          <SlText>
+            {formatNumber(value.amount, {
+              prefix: "R$",
+              precision: 2,
+              minValue: 0,
+            })}
+          </SlText>
         </SlList>
       </SlItemButton>
     );
