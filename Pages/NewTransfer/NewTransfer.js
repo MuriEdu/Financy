@@ -3,6 +3,7 @@ import { MotiView } from "moti";
 import { getUserData, userData } from "../../Backend/Storage";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import BottonOptions from "../../Components/BottonOptions/BottonOptions";
+import Select from "../../Components/Select/Select";
 import Header from "../../Components/Header/Header";
 import CurrencyInput, { formatNumber } from "react-native-currency-input";
 import {
@@ -27,7 +28,7 @@ export default function NewTransfer() {
     {
       iconName: "money",
       iconFont: 1, //FontAwesome
-      name: "13° Salary", // use template strings
+      name: "Default", // use template strings
       description: "year payment",
       amount: 2100.5,
     },
@@ -43,9 +44,8 @@ export default function NewTransfer() {
   const [title, setTitle] = useState();
   const [value, setValue] = useState(formatNumber(0));
   const [date, setDate] = useState(formatDate(new Date()));
-  const [budget, setBudget] = useState();
+  const [budget, setBudget] = useState(fakeBudgetsList[0].name);
   const [dateInputHandler, setDateInputHandler] = useState(false);
-  const [budgetInputHandler, setBudgetInputHandler] = useState(false);
 
   function createTransferObj(title, value, date, budget) {
     const obj = {
@@ -76,6 +76,10 @@ export default function NewTransfer() {
     month = month.toString().padStart(2, "0");
 
     return `${date}/${month}/${year}`;
+  }
+
+  function getSelectedBudget(budget) {
+    setBudget(budget.name);
   }
 
   return (
@@ -129,15 +133,11 @@ export default function NewTransfer() {
               <NtFormText>Value</NtFormText>
             </NtInputView>
             <NtInputView>
-              <NtDateButton>
-                <NtFormText
-                  onPress={() => {
-                    setBudgetInputHandler(true);
-                  }}
-                >
-                  {date}
-                </NtFormText>
-              </NtDateButton>
+              <Select
+                List={fakeBudgetsList}
+                Title={"Budgets"}
+                Function={getSelectedBudget}
+              />
               <NtFormText>Budget</NtFormText>
             </NtInputView>
             <NtInputView>

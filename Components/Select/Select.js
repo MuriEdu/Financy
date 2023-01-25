@@ -17,12 +17,15 @@ import {
 
 export default function Select({ Title, List, Function }) {
   const [open, setOpen] = useState(false);
+  const [selectedName, setSelectedName] = useState(List[0].name);
 
   function CreateList(value) {
     return (
       <SlItemButton
         onPress={() => {
+          setSelectedName(value.name);
           Function(value);
+          setOpen(false);
         }}
       >
         <SlList>
@@ -40,7 +43,7 @@ export default function Select({ Title, List, Function }) {
           setOpen(!open);
         }}
       >
-        <SlText>{List[0].name}</SlText>
+        <SlText>{selectedName}</SlText>
       </SlButton>
       <SlModal visible={open}>
         <SlModalView>
