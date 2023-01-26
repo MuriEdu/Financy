@@ -13,6 +13,7 @@ export const SlConteiner = styled.View`
 export const SlContent = styled.ScrollView`
   display: flex;
   flex-direction: column;
+  flex: 1;
   background-color: #2b2b2b;
   margin-top: 40px;
   border-top-left-radius: 23px;
@@ -29,6 +30,7 @@ export const SlItemButton = styled.TouchableOpacity`
   padding: 20px;
 `;
 export const SlCreateItemButton = styled.TouchableOpacity`
+  display: ${(props) => (props.createButton ? "flex" : "none")};
   width: 100%;
   border-bottom-width: 1px;
   border-color: #363636;

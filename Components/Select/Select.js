@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MotiView } from "moti";
 import Header from "../Header/Header";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import {
   SlButton,
   SlConteiner,
@@ -16,11 +17,19 @@ import {
 } from "./styles";
 import { formatNumber } from "react-native-currency-input";
 
-export default function Select({ Title, List, Function }) {
+export default function Select({ Title, List, Function, createButton, type }) {
   const [open, setOpen] = useState(false);
   const [selectedName, setSelectedName] = useState(List[0].name);
+  const [selectedIcon, setSelectedIcon] = useState("bank");
 
-  function CreateList(value) {
+  // LIST FUNCTIONS
+
+  const ListFunctions = [
+    CreateBudgetList, // type 0
+    CreateIconList, // type 1
+  ];
+
+  function CreateBudgetList(value) {
     return (
       <SlItemButton
         onPress={() => {
@@ -43,6 +52,41 @@ export default function Select({ Title, List, Function }) {
     );
   }
 
+  function CreateIconList(icon) {
+    return (
+      <SlItemButton
+        onPress={() => {
+          setSelectedIcon(icon);
+          Function(icon);
+          setOpen(false);
+        }}
+      >
+        <SlList>
+          <FontAwesome name={icon} size={40} color="#fff" />
+        </SlList>
+      </SlItemButton>
+    );
+  }
+
+  //PLACE HOLDERS
+
+  const PlaceHolders = [BudgetPlaceHolder, IconPlaceHolder];
+
+  function BudgetPlaceHolder() {
+    return <SlText>{selectedName}</SlText>;
+  }
+
+  function IconPlaceHolder() {
+    return (
+      <FontAwesome
+        style={{ marginBottom: 10, marginLeft: 5 }}
+        name={selectedIcon}
+        size={40}
+        color="#fff"
+      />
+    );
+  }
+
   return (
     <SlConteiner>
       <SlButton
@@ -50,7 +94,7 @@ export default function Select({ Title, List, Function }) {
           setOpen(!open);
         }}
       >
-        <SlText>{selectedName}</SlText>
+        {PlaceHolders[type]()}
       </SlButton>
       <SlModal visible={open}>
         <SlModalView>
@@ -65,13 +109,14 @@ export default function Select({ Title, List, Function }) {
           >
             <Header title={"Select " + Title} drawer={false}></Header>
             <SlContent contentContainerStyle={{ alignItems: "center" }}>
-              {List.map(CreateList)}
-              <SlCreateItemButton>
+              {List.map(ListFunctions[type])}
+              <SlCreateItemButton createButton={createButton}>
                 <SlTextButtons isCancel={false}>
                   Create new {Title}
                 </SlTextButtons>
               </SlCreateItemButton>
               <SlCreateItemButton
+                createButton={true}
                 onPress={() => {
                   setOpen(!open);
                 }}

@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import {
   WelcomeText,

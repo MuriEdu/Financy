@@ -20,12 +20,16 @@ export default function Welcome2() {
   const userObj = {
     name: name.trim(),
     amount: 0,
-    defaultBudget: {
-      name: "Default",
-      amount: 0,
-    },
+    defaultBudget: 0,
     totalBudgets: 0,
-    budgets: [],
+    budgets: [
+      {
+        iconName: "bank",
+        name: "Default", // use template strings
+        description: "",
+        amount: 0,
+      },
+    ],
     totalSpendings: 0,
     spendings: [],
     transfers: [],

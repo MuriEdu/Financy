@@ -14,19 +14,6 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 export default function BudgetsList(list) {
-  const iconFonts = [
-    {
-      render: (name) => {
-        return <Ionicons name={name} size={40} color="#000" />;
-      },
-    },
-    {
-      render: (name) => {
-        return <FontAwesome name={name} size={40} color="#000" />;
-      },
-    },
-  ];
-
   return (
     <BudgetsContainer showsVerticalScrollIndicator={false}>
       {list.map((item) => {
@@ -36,7 +23,7 @@ export default function BudgetsList(list) {
           <BudgetsView>
             <BudgetsContainerLeft>
               <BudgetsIcon>
-                {iconFonts[item.iconFont].render(item.iconName)}
+                <FontAwesome name={item.iconName} size={40} color="#000" />
               </BudgetsIcon>
               <BudgetsContent>
                 <ContentText title size={18}>

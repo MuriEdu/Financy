@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MotiView } from "moti";
-import { getUserData, userData } from "../../Backend/Storage";
+import { getUserData, saveData, userData } from "../../Backend/Storage";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import BottonOptions from "../../Components/BottonOptions/BottonOptions";
 import Select from "../../Components/Select/Select";
@@ -15,36 +15,19 @@ import {
   NtNameText,
   NtNameView,
   NtView,
-  NtHeaderView,
   styles,
   NtDateButton,
 } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 export default function NewTransfer() {
+  getUserData();
   const navigation = useNavigation();
-
-  const fakeBudgetsList = [
-    {
-      iconName: "money",
-      iconFont: 1, //FontAwesome
-      name: "Default", // use template strings
-      description: "year payment",
-      amount: 2100.5,
-    },
-    {
-      iconName: "money",
-      iconFont: 1, //FontAwesome
-      name: "Salary", // use template strings
-      description: "monthly payment",
-      amount: 3150,
-    },
-  ];
 
   const [title, setTitle] = useState("");
   const [value, setValue] = useState(formatNumber(0));
   const [date, setDate] = useState(formatDate(new Date()));
-  const [budget, setBudget] = useState(fakeBudgetsList[0].name);
+  const [budget, setBudget] = useState(userData.budgets);
   const [dateInputHandler, setDateInputHandler] = useState(false);
 
   function createTransferObj(title, value, date, budget) {
@@ -58,13 +41,14 @@ export default function NewTransfer() {
   }
 
   function addEarn() {
-    const data = getUserData();
     const editableData = userData;
     const formatedTitle =
       title.trim() === "" ? "Unnamed Transfer" : title.trim();
     editableData.transfers.push(
       createTransferObj(formatedTitle, value, date, budget)
     );
+    saveData(editableData);
+    getUserData();
     navigation.navigate("Home");
   }
 
@@ -141,9 +125,11 @@ export default function NewTransfer() {
             </NtInputView>
             <NtInputView>
               <Select
-                List={fakeBudgetsList}
+                List={userData.budgets}
                 Title={"Budgets"}
                 Function={getSelectedBudget}
+                createButton={true}
+                type={0}
               />
               <NtFormText>Budget</NtFormText>
             </NtInputView>

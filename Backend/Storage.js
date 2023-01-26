@@ -24,16 +24,23 @@ export async function isFirstTime() {
 export let userData = {
   name: "Financer",
   amount: 0,
-  defaultBudget: {
-    name: "Default",
-    amount: 0,
-  },
   totalBudgets: 0,
-  budgets: [],
+  budgets: [
+    {
+      iconName: "money",
+      name: "Default", // use template strings
+      description: "year payment",
+      amount: 0,
+    },
+  ],
   totalSpendings: 0,
   spendings: [],
   transfers: [],
 };
+
+export function changeUserData(data) {
+  userData = data;
+}
 
 export async function getUserData() {
   try {

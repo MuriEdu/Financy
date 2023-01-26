@@ -31,7 +31,7 @@ export default function BottonOptions({ screen, addFunction }) {
         return <ButtonText isRed={false}>Create</ButtonText>;
       },
       leftFunction: () => {
-        alert("LEFT BUTTON");
+        navigation.navigate("NewBudgets");
       },
       rightButton: () => {
         return <ButtonText isRed={true}>Delete</ButtonText>;
@@ -68,6 +68,21 @@ export default function BottonOptions({ screen, addFunction }) {
       },
       rightFunction: () => {
         navigation.navigate("Home");
+      },
+    },
+    // 4 => New Budgets
+    {
+      leftButton: () => {
+        return <ButtonText isRed={false}>Add</ButtonText>;
+      },
+      leftFunction: () => {
+        addFunction();
+      },
+      rightButton: () => {
+        return <ButtonText isRed={true}>Cancel</ButtonText>;
+      },
+      rightFunction: () => {
+        navigation.navigate("Budgets");
       },
     },
   ];
