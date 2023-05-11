@@ -38,8 +38,9 @@ export let userData = {
   transfers: [],
 };
 
-export function changeUserData(data) {
-  userData = data;
+export function addBudgets(budget) {
+  userData.budgets.push(budget);
+  saveData(userData);
 }
 
 export async function getUserData() {
@@ -47,6 +48,7 @@ export async function getUserData() {
     const data = await AsyncStorage.getItem("@financy-data");
     const jsonValue = JSON.parse(data);
     userData = jsonValue;
+    return jsonValue;
   } catch (e) {
     alert(e);
   }

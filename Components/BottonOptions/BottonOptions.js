@@ -4,6 +4,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { BottonView, BottonContents, Line, ButtonText } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import PopupContent from "../PopupContent/PopupContent";
+import { getUserData } from "../../Backend/Storage";
 
 export default function BottonOptions({ screen, addFunction }) {
   const navigation = useNavigation();

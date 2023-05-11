@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import {
   BudgetsView,
@@ -12,11 +12,13 @@ import {
 } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { getUserData, userData } from "../../Backend/Storage";
 
 export default function BudgetsList(list) {
+  getUserData();
   return (
     <BudgetsContainer showsVerticalScrollIndicator={false}>
-      {list.map((item) => {
+      {userData.budgets.map((item) => {
         const fltAmount = parseFloat(item.amount).toFixed(2);
 
         return (

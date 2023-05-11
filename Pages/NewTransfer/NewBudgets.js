@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MotiView } from "moti";
 import {
+  addBudgets,
   changeUserData,
   getUserData,
   saveData,
@@ -78,14 +79,15 @@ export default function NewBudgets() {
   }
 
   function addEarn() {
-    const editableData = userData;
     const formatedName = name.trim() === "" ? "Unnamed Budget" : name.trim();
-
-    editableData.budgets.push(
-      createBudgetObj(formatedName, value, icon, description.trim())
+    const newBudget = createBudgetObj(
+      formatedName,
+      value,
+      icon,
+      description.trim()
     );
-    saveData(editableData);
-    changeUserData(editableData);
+    addBudgets(newBudget);
+    getUserData();
     navigation.navigate("Budgets");
   }
 
